@@ -1,0 +1,54 @@
+package Fundamentals.BasicSyntax.BasicSyntaxExercise;
+
+import java.util.Scanner;
+
+public class Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numberOfPeople = Integer.parseInt(scanner.nextLine());
+        String groupType = scanner.nextLine();
+        String day = scanner.nextLine();
+        double price = 0.0;
+        double totalPrice;
+        switch (day) {
+            case "Friday":
+                if (groupType.equals("Students")) {
+                    price = numberOfPeople * 8.45;
+                } else if (groupType.equals("Business")) {
+                    price = numberOfPeople * 10.90;
+                } else if (groupType.equals("Regular")) {
+                    price = numberOfPeople * 15;
+                }
+                break;
+            case "Saturday":
+                if (groupType.equals("Students")) {
+                    price = numberOfPeople * 9.80;
+                } else if (groupType.equals("Business")) {
+                    price = numberOfPeople * 15.60;
+                } else if (groupType.equals("Regular")) {
+                    price = numberOfPeople * 20;
+                }
+                break;
+            case "Sunday":
+                if (groupType.equals("Students")) {
+                    price = numberOfPeople * 10.46;
+                } else if (groupType.equals("Business")) {
+                    price = numberOfPeople * 16;
+                } else if (groupType.equals("Regular")) {
+
+                    price = numberOfPeople * 22.50;
+                }
+                break;
+        }
+        if (groupType.equals("Students") && numberOfPeople >= 30) {
+            totalPrice = price - price * 0.15;
+        } else if (groupType.equals("Business") && numberOfPeople >= 100) {
+            totalPrice = price - price * 100;
+        } else if (groupType.equals("Regular") && numberOfPeople >= 10 && numberOfPeople <= 20) {
+            totalPrice = price - price * 0.05;
+        } else {
+            totalPrice = price;
+        }
+        System.out.printf("Total price: %.2f", totalPrice);
+    }
+}

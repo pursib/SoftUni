@@ -1,0 +1,22 @@
+package Fundamentals.BasicSyntax.BasicSyntaxExercise;
+
+import java.util.Scanner;
+
+public class Ages {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int number = Integer.parseInt(scanner.nextLine());
+
+        if (number >= 0 && number <= 2) {
+            System.out.println("baby");
+        } else if (number > 2 && number <= 13) {
+            System.out.println("child");
+        } else if (number > 13 && number <= 19){
+            System.out.println("teenager");
+        }else if(number > 19 && number <= 65){
+            System.out.println("adult");
+        }else{
+            System.out.println("elder");
+        }
+    }
+}

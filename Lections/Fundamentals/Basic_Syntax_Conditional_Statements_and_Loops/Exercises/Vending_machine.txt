@@ -1,0 +1,76 @@
+package Fundamentals.BasicSyntax.BasicSyntaxExercise;
+
+import java.util.Scanner;
+
+public class VendingMachine {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        double totalMoneyInMachine = 0.0;
+        double totalPrice = 0.0;
+        while (!input.equals("Start")) {
+            double money = Double.parseDouble(input);
+            if (input.equals("0.1") || input.equals("0.2") || input.equals("0.5") || input.equals("1") || input.equals("2")) {
+                totalMoneyInMachine += money;
+            } else {
+                System.out.printf("Cannot accept %.2f%n", money);
+            }
+
+            input = scanner.nextLine();
+
+        }
+        String secondInput = scanner.nextLine();
+
+        while (!secondInput.equals("End")) {
+            if (secondInput.equals("Nuts")) {
+                if (totalMoneyInMachine >= 2) {
+                    totalPrice += 2;
+                    totalMoneyInMachine -= 2;
+                    System.out.println("Purchased Nuts");
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (secondInput.equals("Water")) {
+                if (totalMoneyInMachine >= 0.7) {
+                    totalPrice += 0.7;
+                    totalMoneyInMachine -= 0.7;
+                    System.out.println("Purchased Water");
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (secondInput.equals("Crisps")) {
+                if (totalMoneyInMachine >= 1.5) {
+                    totalPrice += 1.5;
+                    totalMoneyInMachine -= 1.5;
+                    System.out.println("Purchased Crisps");
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (secondInput.equals("Soda")) {
+                if (totalMoneyInMachine >= 0.8) {
+                    totalPrice += 0.8;
+                    totalMoneyInMachine -= 0.8;
+                    System.out.println("Purchased Soda");
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else if (secondInput.equals("Coke")) {
+                totalPrice += 1;
+                if (totalMoneyInMachine >= 1) {
+                    totalMoneyInMachine -= 1;
+                    System.out.println("Purchased Coke");
+                } else {
+                    System.out.println("Sorry, not enough money");
+                }
+            } else {
+                System.out.println("Invalid product");
+            }
+            secondInput = scanner.nextLine();
+        }
+double change = totalMoneyInMachine;
+        System.out.printf("Change: %.2f",change);
+
+    }
+
+
+}
